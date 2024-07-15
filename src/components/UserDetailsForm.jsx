@@ -4,6 +4,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { setUserData, showRandomText } from "../store/slices/userSlice";
+import { openSuccessSnackbar } from "../store/slices/snackbarSlice";
 
 const UserDetailsForm = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const UserDetailsForm = () => {
         onSubmit={(values) => {
           // console.log(values);
           dispatch(setUserData(values));
+          dispatch(openSuccessSnackbar("User registered successfully"));
         }}
       >
         {(formik) => (
